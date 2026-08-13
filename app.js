@@ -827,6 +827,281 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/'/g, '&#039;');
   }
 
+  // =========================================================================
+  // 11. STUDIO ADMIN PORTAL & APPOINTMENTS VIEWER
+  // =========================================================================
+  const openAdminPortalBtn = document.getElementById('openAdminPortalBtn');
+  const adminModal = document.getElementById('adminModal');
+  const closeAdminModalBtn = document.getElementById('closeAdminModalBtn');
+  const adminAuthScreen = document.getElementById('adminAuthScreen');
+  const adminDashboardScreen = document.getElementById('adminDashboardScreen');
+  const adminLoginForm = document.getElementById('adminLoginForm');
+  const adminPassInput = document.getElementById('adminPassInput');
+  const adminLogoutBtn = document.getElementById('adminLogoutBtn');
+
+  const tabBtnAppointments = document.getElementById('tabBtnAppointments');
+  const tabBtnReviews = document.getElementById('tabBtnReviews');
+  const tabBtnIntegrations = document.getElementById('tabBtnIntegrations');
+  const viewAppointments = document.getElementById('viewAppointments');
+  const viewReviews = document.getElementById('viewReviews');
+  const viewIntegrations = document.getElementById('viewIntegrations');
+
+  const adminAppointmentsTbody = document.getElementById('adminAppointmentsTbody');
+  const noAppointmentsNotice = document.getElementById('noAppointmentsNotice');
+  const adminAppointmentsCount = document.getElementById('adminAppointmentsCount');
+  const adminReviewsTbody = document.getElementById('adminReviewsTbody');
+  const adminReviewsCount = document.getElementById('adminReviewsCount');
+  const exportCsvBtn = document.getElementById('exportCsvBtn');
+
+  let isAdminAuthenticated = false;
+
+  function openAdminModal() {
+    adminModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    if (isAdminAuthenticated) {
+      showAdminDashboard();
+    } else {
+      adminAuthScreen.classList.remove('hidden');
+      adminDashboardScreen.classList.add('hidden');
+      if (adminPassInput) adminPassInput.focus();
+    }
+  }
+
+  function closeAdminModal() {
+    adminModal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  if (openAdminPortalBtn) openAdminPortalBtn.addEventListener('click', openAdminModal);
+  if (closeAdminModalBtn) closeAdminModalBtn.addEventListener('click', closeAdminModal);
+
+  // Keyboard shortcut: Ctrl + Shift + A opens Admin Portal
+  window.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'a') {
+      e.preventDefault();
+      openAdminModal();
+    }
+  });
+
+  // Admin Auth Submit
+  if (adminLoginForm) {
+    adminLoginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const entered = adminPassInput.value.trim();
+      if (entered === 'eldh2026' || entered === 'admin' || entered === 'admin123') {
+        isAdminAuthenticated = true;
+        showAdminDashboard();
+        showToast('Director access granted.', 'fa-shield-halved');
+      } else {
+        showToast('Incorrect passcode. Default is eldh2026', 'fa-triangle-exclamation');
+        adminPassInput.value = '';
+      }
+    });
+  }
+
+  if (adminLogoutBtn) {
+    adminLogoutBtn.addEventListener('click', () => {
+      isAdminAuthenticated = false;
+      adminAuthScreen.classList.remove('hidden');
+      adminDashboardScreen.classList.add('hidden');
+      adminPassInput.value = '';
+      showToast('Logged out of Studio Portal.', 'fa-lock');
+    });
+  }
+
+  function showAdminDashboard() {
+    adminAuthScreen.classList.add('hidden');
+    adminDashboardScreen.classList.remove('hidden');
+    adminDashboardScreen.style.display = 'flex';
+    renderAdminAppointments();
+    renderAdminReviews();
+  }
+
+  // Admin Tab Switcher
+  function switchAdminTab(activeTab) {
+    const tabs = [
+      { btn: tabBtnAppointments, view: viewAppointments },
+      { btn: tabBtnReviews, view: viewReviews },
+      { btn: tabBtnIntegrations, view: viewIntegrations }
+    ];
+
+    tabs.forEach(t => {
+      if (t.btn === activeTab) {
+        t.btn.className = 'px-4 py-2 rounded-lg text-xs font-cinzel tracking-wider uppercase bg-gold text-black font-bold transition-all flex items-center gap-2';
+        t.view.classList.remove('hidden');
+      } else {
+        t.btn.className = 'px-4 py-2 rounded-lg text-xs font-cinzel tracking-wider uppercase text-muted hover:text-white transition-all flex items-center gap-2';
+        t.view.classList.add('hidden');
+      }
+    });
+  }
+
+  if (tabBtnAppointments) tabBtnAppointments.addEventListener('click', () => switchAdminTab(tabBtnAppointments));
+  if (tabBtnReviews) tabBtnReviews.addEventListener('click', () => switchAdminTab(tabBtnReviews));
+  if (tabBtnIntegrations) tabBtnIntegrations.addEventListener('click', () => switchAdminTab(tabBtnIntegrations));
+
+  // Render Admin Appointments Table
+  function renderAdminAppointments() {
+    let appointments = [];
+    try {
+      appointments = JSON.parse(localStorage.getItem('eldh_appointments') || '[]');
+    } catch (e) {
+      console.warn(e);
+    }
+
+    if (adminAppointmentsCount) adminAppointmentsCount.textContent = appointments.length;
+
+    if (!adminAppointmentsTbody) return;
+    adminAppointmentsTbody.innerHTML = '';
+
+    if (appointments.length === 0) {
+      if (noAppointmentsNotice) noAppointmentsNotice.classList.remove('hidden');
+      return;
+    }
+
+    if (noAppointmentsNotice) noAppointmentsNotice.classList.add('hidden');
+
+    appointments.forEach((item, index) => {
+      const tr = document.createElement('tr');
+      tr.className = 'hover:bg-surface-elevated/50 transition-colors';
+
+      // Clean phone for whatsapp
+      const cleanPhone = (item.phone || '').replace(/[^0-9]/g, '');
+      const waText = encodeURIComponent(`Hello ${item.name}, this is The El Design House regarding your consultation scheduled for ${item.date} (${item.time}).`);
+      const waLink = cleanPhone ? `https://wa.me/${cleanPhone}?text=${waText}` : '#';
+
+      tr.innerHTML = `
+        <td class="p-3.5 font-mono text-gold font-bold">${escapeHtml(item.refCode || 'ELDH-0000')}</td>
+        <td class="p-3.5">
+          <div class="font-medium text-white">${escapeHtml(item.name)}</div>
+          <div class="text-[11px] text-muted">${escapeHtml(item.location || 'N/A')}</div>
+        </td>
+        <td class="p-3.5">
+          <div><a href="mailto:${escapeHtml(item.email)}" class="text-platinum hover:text-gold underline">${escapeHtml(item.email)}</a></div>
+          <div class="flex items-center gap-2 mt-0.5">
+            <a href="tel:${escapeHtml(item.phone)}" class="text-muted hover:text-white">${escapeHtml(item.phone)}</a>
+            ${cleanPhone ? `<a href="${waLink}" target="_blank" class="text-green-500 hover:text-green-400 text-xs" title="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>` : ''}
+          </div>
+        </td>
+        <td class="p-3.5 text-platinum/90 max-w-xs">${escapeHtml(item.projectType || 'Standard')}</td>
+        <td class="p-3.5">
+          <div class="text-white font-medium">${escapeHtml(item.date || 'Pending')}</div>
+          <div class="text-[10px] text-gold font-mono">${escapeHtml(item.time || 'TBD')}</div>
+        </td>
+        <td class="p-3.5 text-muted">${escapeHtml(item.mode || 'Virtual')}</td>
+        <td class="p-3.5 text-muted max-w-xs truncate" title="${escapeHtml(item.notes || '')}">
+          ${escapeHtml(item.notes || '—')}
+        </td>
+        <td class="p-3.5 text-right whitespace-nowrap">
+          <button class="delete-app-btn text-red-400 hover:text-red-300 p-1.5 ml-1 transition-colors" data-index="${index}" title="Remove Appointment">
+            <i class="fa-regular fa-trash-can"></i>
+          </button>
+        </td>
+      `;
+
+      adminAppointmentsTbody.appendChild(tr);
+    });
+
+    // Bind Delete buttons
+    document.querySelectorAll('.delete-app-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const idx = parseInt(btn.getAttribute('data-index'), 10);
+        if (confirm('Delete this appointment record?')) {
+          appointments.splice(idx, 1);
+          localStorage.setItem('eldh_appointments', JSON.stringify(appointments));
+          renderAdminAppointments();
+          showToast('Appointment removed.', 'fa-trash-can');
+        }
+      });
+    });
+  }
+
+  // Render Admin Reviews Table
+  function renderAdminReviews() {
+    let userReviews = [];
+    try {
+      userReviews = JSON.parse(localStorage.getItem('eldh_reviews') || '[]');
+    } catch (e) {
+      console.warn(e);
+    }
+
+    const all = [...userReviews, ...defaultReviews];
+    if (adminReviewsCount) adminReviewsCount.textContent = all.length;
+
+    if (!adminReviewsTbody) return;
+    adminReviewsTbody.innerHTML = '';
+
+    all.forEach((rev, index) => {
+      const tr = document.createElement('tr');
+      tr.className = 'hover:bg-surface-elevated/50 transition-colors';
+
+      tr.innerHTML = `
+        <td class="p-3.5 text-gold font-bold font-cinzel">${rev.rating}.0 ★</td>
+        <td class="p-3.5">
+          <div class="text-white font-medium">${escapeHtml(rev.author)}</div>
+          <div class="text-[11px] text-muted">${escapeHtml(rev.location)}</div>
+        </td>
+        <td class="p-3.5 text-platinum">${escapeHtml(rev.project || rev.type || 'Residence')}</td>
+        <td class="p-3.5 text-muted max-w-sm italic">“${escapeHtml(rev.content)}”</td>
+        <td class="p-3.5 text-muted font-mono text-[10px]">${escapeHtml(rev.date || 'Recent')}</td>
+        <td class="p-3.5 text-right">
+          ${index < userReviews.length ? `
+            <button class="delete-rev-btn text-red-400 hover:text-red-300 p-1.5" data-user-idx="${index}">
+              <i class="fa-regular fa-trash-can"></i>
+            </button>
+          ` : '<span class="text-[10px] text-muted">Curated</span>'}
+        </td>
+      `;
+
+      adminReviewsTbody.appendChild(tr);
+    });
+
+    document.querySelectorAll('.delete-rev-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const uIdx = parseInt(btn.getAttribute('data-user-idx'), 10);
+        if (confirm('Delete this client review?')) {
+          userReviews.splice(uIdx, 1);
+          localStorage.setItem('eldh_reviews', JSON.stringify(userReviews));
+          renderAdminReviews();
+          loadAndRenderReviews();
+          showToast('Review removed.', 'fa-trash-can');
+        }
+      });
+    });
+  }
+
+  // Export Appointments to CSV (Excel format)
+  if (exportCsvBtn) {
+    exportCsvBtn.addEventListener('click', () => {
+      let appointments = [];
+      try {
+        appointments = JSON.parse(localStorage.getItem('eldh_appointments') || '[]');
+      } catch (e) {
+        console.warn(e);
+      }
+
+      if (appointments.length === 0) {
+        showToast('No appointments to export.', 'fa-circle-info');
+        return;
+      }
+
+      let csv = 'Reference,Client Name,Email,Phone,Location,Project Type,Format,Date,Time Slot,Notes,Logged At\n';
+      appointments.forEach(a => {
+        csv += `"${a.refCode || ''}","${a.name || ''}","${a.email || ''}","${a.phone || ''}","${a.location || ''}","${a.projectType || ''}","${a.mode || ''}","${a.date || ''}","${a.time || ''}","${(a.notes || '').replace(/"/g, '""')}","${a.createdAt || ''}"\n`;
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.setAttribute('href', url);
+      link.setAttribute('download', `The_El_Design_House_Appointments_${new Date().toISOString().split('T')[0]}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      showToast('Appointments exported to CSV successfully.', 'fa-file-excel');
+    });
+  }
+
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       if (projectModal.classList.contains('active')) closeProjectModal();
@@ -838,6 +1113,7 @@ document.addEventListener('DOMContentLoaded', () => {
         bookingConfirmModal.classList.remove('active');
         document.body.style.overflow = '';
       }
+      if (adminModal.classList.contains('active')) closeAdminModal();
       if (!mobileDrawer.classList.contains('translate-x-full')) closeMobileMenu();
     }
   });

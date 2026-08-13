@@ -1137,10 +1137,14 @@
         <!-- Lower Footer Copyright -->
         <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-muted font-light gap-4">
           <p>© 2026 The El Design House. All Rights Reserved. Where Art, Function and Life Meet.</p>
-          <div class="flex gap-6">
+          <div class="flex items-center gap-6">
             <a href="#" class="hover:text-gold transition-colors">Privacy Policy</a>
             <a href="#" class="hover:text-gold transition-colors">Terms of Commission</a>
             <a href="#" class="hover:text-gold transition-colors">NDA Protocol</a>
+            <button id="openAdminPortalBtn" class="text-muted/60 hover:text-gold transition-colors text-[11px] flex items-center gap-1.5 cursor-pointer bg-transparent border-none">
+              <i class="fa-solid fa-lock text-[9px]"></i>
+              <span>Studio Portal</span>
+            </button>
           </div>
         </div>
 
@@ -1337,6 +1341,177 @@
       <button id="closeBookingConfirmBtn" class="btn-luxe-gold w-full py-3 text-center justify-center font-medium">
         <span>Acknowledge & Close</span>
       </button>
+
+    </div>
+  </div>
+
+  <!-- STUDIO ADMIN DASHBOARD MODAL -->
+  <div id="adminModal" class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="modal-content relative w-full max-w-5xl bg-noir border border-gold/40 rounded-2xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 max-h-[92vh] flex flex-col">
+      
+      <!-- Admin Modal Header -->
+      <div class="flex items-center justify-between p-6 border-b border-border-subtle bg-surface flex-shrink-0">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-lg bg-gold/15 border border-gold/40 flex items-center justify-center text-gold">
+            <i class="fa-solid fa-gauge-high text-sm"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-cinzel text-base font-bold text-white tracking-wider">Studio Executive Dashboard</span>
+              <span class="px-2 py-0.5 rounded text-[9px] font-mono uppercase bg-gold/20 text-gold border border-gold/30">Manager Portal</span>
+            </div>
+            <span class="text-xs text-muted font-light">The El Design House — Client Inquiries & Review Hub</span>
+          </div>
+        </div>
+        <button id="closeAdminModalBtn" class="text-muted hover:text-white p-2" aria-label="Close Admin Modal">
+          <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+      </div>
+
+      <!-- Admin Passcode Gate (Screen 1) -->
+      <div id="adminAuthScreen" class="p-12 text-center max-w-md mx-auto my-auto space-y-6">
+        <div class="w-14 h-14 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center text-gold text-xl mx-auto">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <div>
+          <h3 class="font-cinzel text-lg font-bold text-white mb-1">Studio Access Verification</h3>
+          <p class="text-xs text-muted">Enter studio director passcode to view booked appointments.</p>
+        </div>
+        <form id="adminLoginForm" class="space-y-4">
+          <input type="password" id="adminPassInput" required placeholder="Enter passcode (default: eldh2026)" class="form-input text-center text-sm font-mono tracking-widest py-3">
+          <button type="submit" class="btn-luxe-gold w-full py-3">
+            <span>Authenticate</span>
+            <i class="fa-solid fa-unlock text-xs ml-2"></i>
+          </button>
+          <p class="text-[10px] text-muted font-mono">Default Passcode: <span class="text-gold">eldh2026</span></p>
+        </form>
+      </div>
+
+      <!-- Admin Dashboard Content (Screen 2 - Hidden until logged in) -->
+      <div id="adminDashboardScreen" class="hidden flex-col flex-1 overflow-hidden">
+        
+        <!-- Dashboard Sub-header & Navigation Tabs -->
+        <div class="px-6 py-4 border-b border-border-subtle bg-surface-elevated/40 flex flex-wrap items-center justify-between gap-4">
+          
+          <!-- Tabs -->
+          <div class="flex items-center gap-2" role="tablist">
+            <button id="tabBtnAppointments" class="px-4 py-2 rounded-lg text-xs font-cinzel tracking-wider uppercase bg-gold text-black font-bold transition-all flex items-center gap-2">
+              <i class="fa-solid fa-calendar-days"></i>
+              <span>Appointments (<span id="adminAppointmentsCount">0</span>)</span>
+            </button>
+            <button id="tabBtnReviews" class="px-4 py-2 rounded-lg text-xs font-cinzel tracking-wider uppercase text-muted hover:text-white transition-all flex items-center gap-2">
+              <i class="fa-solid fa-star"></i>
+              <span>Reviews (<span id="adminReviewsCount">0</span>)</span>
+            </button>
+            <button id="tabBtnIntegrations" class="px-4 py-2 rounded-lg text-xs font-cinzel tracking-wider uppercase text-muted hover:text-white transition-all flex items-center gap-2">
+              <i class="fa-solid fa-bell"></i>
+              <span>Instant Email Alerts</span>
+            </button>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="flex items-center gap-3">
+            <button id="exportCsvBtn" class="btn-luxe-outline text-xs py-2 px-3.5 flex items-center gap-2">
+              <i class="fa-solid fa-file-csv text-gold"></i>
+              <span>Export to Excel (CSV)</span>
+            </button>
+            <button id="adminLogoutBtn" class="text-xs text-muted hover:text-white p-2">
+              <i class="fa-solid fa-arrow-right-from-bracket mr-1"></i> Logout
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Scrollable Tab Contents -->
+        <div class="p-6 overflow-y-auto flex-1 space-y-6">
+          
+          <!-- TAB 1: APPOINTMENTS TABLE -->
+          <div id="viewAppointments" class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="font-cinzel text-xs uppercase tracking-wider text-gold">Recent Inquiries Log</span>
+              <span class="text-xs text-muted">Auto-saves all online bookings</span>
+            </div>
+
+            <!-- Appointments Table Container -->
+            <div class="rounded-xl border border-border-subtle overflow-x-auto bg-surface/60">
+              <table class="w-full text-left text-xs border-collapse">
+                <thead>
+                  <tr class="border-b border-border-subtle bg-surface-elevated text-muted font-cinzel uppercase tracking-wider">
+                    <th class="p-3.5">Ref #</th>
+                    <th class="p-3.5">Client</th>
+                    <th class="p-3.5">Contact</th>
+                    <th class="p-3.5">Project Scope</th>
+                    <th class="p-3.5">Date & Slot</th>
+                    <th class="p-3.5">Format</th>
+                    <th class="p-3.5">Notes</th>
+                    <th class="p-3.5 text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminAppointmentsTbody" class="divide-y divide-border-subtle">
+                  <!-- Injected via JavaScript -->
+                </tbody>
+              </table>
+            </div>
+            <div id="noAppointmentsNotice" class="hidden text-center py-12 text-muted text-xs">
+              <i class="fa-solid fa-inbox text-3xl text-muted/30 block mb-2"></i>
+              No appointments logged yet. Try booking one from the website form!
+            </div>
+          </div>
+
+          <!-- TAB 2: REVIEWS TABLE -->
+          <div id="viewReviews" class="hidden space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="font-cinzel text-xs uppercase tracking-wider text-gold">Client Reviews & Testimonials</span>
+              <span class="text-xs text-muted">Moderate and review feedback</span>
+            </div>
+            <div class="rounded-xl border border-border-subtle overflow-x-auto bg-surface/60">
+              <table class="w-full text-left text-xs border-collapse">
+                <thead>
+                  <tr class="border-b border-border-subtle bg-surface-elevated text-muted font-cinzel uppercase tracking-wider">
+                    <th class="p-3.5">Rating</th>
+                    <th class="p-3.5">Client & Location</th>
+                    <th class="p-3.5">Project</th>
+                    <th class="p-3.5">Testimonial Content</th>
+                    <th class="p-3.5">Date</th>
+                    <th class="p-3.5 text-right">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="adminReviewsTbody" class="divide-y divide-border-subtle">
+                  <!-- Injected via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- TAB 3: INTEGRATIONS / INSTANT EMAIL ALERTS GUIDE -->
+          <div id="viewIntegrations" class="hidden space-y-6">
+            <div class="p-6 rounded-xl bg-surface-elevated/70 border border-gold/30">
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-full bg-gold/15 flex items-center justify-center text-gold text-base flex-shrink-0">
+                  <i class="fa-regular fa-envelope"></i>
+                </div>
+                <div>
+                  <h4 class="font-cinzel text-sm font-bold text-white uppercase tracking-wider">Instant Email & Notification Alerts</h4>
+                  <p class="text-xs text-muted font-light leading-relaxed mt-1 mb-4">
+                    In addition to this built-in dashboard, you can have every appointment sent directly to your phone / email inbox in real-time via <strong class="text-white">Formspree</strong> or <strong class="text-white">Web3Forms</strong> (100% free, no code backend required).
+                  </p>
+                  
+                  <div class="space-y-3 bg-noir p-4 rounded-lg border border-border-subtle text-xs">
+                    <p class="text-platinum font-medium">To receive instant emails to your personal inbox:</p>
+                    <ol class="list-decimal list-inside space-y-1.5 text-muted font-light">
+                      <li>Sign up for free at <a href="https://formspree.io" target="_blank" class="text-gold underline">Formspree.io</a> or <a href="https://web3forms.com" target="_blank" class="text-gold underline">Web3Forms.com</a>.</li>
+                      <li>Create a new form and enter your receiving email (e.g. <span class="text-platinum font-mono">concierge@theeldesignhouse.com</span>).</li>
+                      <li>Copy your Form ID endpoint and paste it in <span class="text-platinum font-mono">app.js</span> under <span class="text-gold font-mono">FORMSPREE_ENDPOINT</span>.</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
 
     </div>
   </div>
