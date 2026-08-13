@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The El Design House | Where Art, Function & Life Meet | Bespoke Interior Architecture</title>
+  <meta name="description" content="The El Design House is an ultra-luxury interior architecture and design studio delivering turnkey residential sanctuaries and iconic commercial spaces worldwide.">
+  <meta name="keywords" content="luxury interior design, architectural design studio, turnkey residential execution, commercial interior design, bespoke interiors, The El Design House">
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="The El Design House | Where Art, Function & Life Meet">
+  <meta property="og:description" content="End-to-end turnkey architectural interior design for high-end residential and commercial spaces globally.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./assets/images/hero_interior.jpg">
+
+  <!-- Favicon / SVG Logo Icon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230a0a0c'/%3E%3Cpath d='M20 20h28v28H20zm32 0h28v28H52zM20 52h28v28H20zm32 32h28V52H52z' fill='%23c5a059'/%3E%3C/svg%3E">
+
+  <!-- Google Fonts: Cormorant Garamond, Cinzel, Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Tailwind CSS Engine -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            noir: '#09090b',
+            surface: '#111115',
+            'surface-elevated': '#17171e',
+            gold: '#c5a059',
+            'gold-light': '#e5cb93',
+            'gold-dark': '#947435',
+            platinum: '#f5f2eb',
+            muted: '#8e8d94',
+            'border-subtle': 'rgba(255, 255, 255, 0.08)',
+          },
+          fontFamily: {
+            times: ["'Times New Roman'", 'Times', 'serif'],
+            cinzel: ['Cinzel', 'serif'],
+            cormorant: ['Cormorant Garamond', 'Georgia', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['Space Grotesk', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-noir text-platinum selection:bg-gold selection:text-black">
+
+  <!-- BACKGROUND AMBIENT GLOW -->
+  <div class="ambient-glow glow-1" aria-hidden="true"></div>
+  <div class="ambient-glow glow-2" aria-hidden="true"></div>
+  <div class="ambient-glow glow-3" aria-hidden="true"></div>
+
+  <!-- NAVIGATION HEADER -->
+  <header id="main-header" class="site-header fixed top-0 left-0 w-full z-50 transition-all duration-500">
+    <div class="container-wide mx-auto px-6 md:px-12 flex items-center justify-between h-24">
+      
+      <!-- Brand Logo -->
+      <a href="#hero" class="brand-logo flex items-center gap-4 group" aria-label="The El Design House Home">
+        <div class="logo-mark">
+          <svg class="w-11 h-11 transition-transform duration-500 group-hover:scale-105" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="120" height="120" rx="4" fill="#0d0d10" stroke="#c5a059" stroke-width="1.5"/>
+            <!-- Architectural abstract monogram mark inspired by brand PDF -->
+            <path d="M22 22H56V56H22V22Z" fill="#f5f2eb"/>
+            <path d="M64 22H98V56H64V22Z" fill="#c5a059"/>
+            <path d="M22 64H56V98H22V64Z" fill="#c5a059"/>
+            <path d="M64 64H98V98H64V64Z" fill="#f5f2eb"/>
+            <!-- Cutout geometric architectural lines -->
+            <path d="M26 52L52 26M68 52L94 26M26 94L52 68M68 94L94 68" stroke="#0d0d10" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="brand-text flex flex-col">
+          <span class="brand-title font-times tracking-widest text-xl text-white font-normal leading-tight">THE EL</span>
+          <span class="brand-sub font-times text-xs tracking-widest text-white font-normal">DESIGN HOUSE</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden lg:flex items-center gap-8 nav-links" aria-label="Primary Navigation">
+        <a href="#about" class="nav-link">About Us</a>
+        <a href="#process" class="nav-link">Our Process</a>
+        <a href="#works" class="nav-link">Works & Portfolio</a>
+        <a href="#estimator" class="nav-link">Scope Planner</a>
+        <a href="#reviews" class="nav-link">Client Reviews</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Action CTA & Mobile Trigger -->
+      <div class="flex items-center gap-4">
+        <a href="#appointment" class="btn-luxe-gold hidden sm:inline-flex items-center gap-2">
+          <span>Book Appointment</span>
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+        
+        <button id="mobile-toggle" class="lg:hidden text-white hover:text-gold p-2.5 focus:outline-none" aria-label="Toggle Menu" aria-expanded="false">
+          <i class="fa-solid fa-bars-staggered text-xl"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div id="mobile-drawer" class="mobile-drawer fixed inset-y-0 right-0 w-80 bg-surface-elevated z-50 transform translate-x-full transition-transform duration-500 shadow-2xl p-8 flex flex-col justify-between border-l border-border-subtle lg:hidden">
+      <div>
+        <div class="flex items-center justify-between mb-10 pb-4 border-b border-border-subtle">
+          <div class="flex items-center gap-3">
+            <span class="font-times text-lg tracking-widest text-white">THE EL</span>
+            <span class="text-white text-xs tracking-wider font-times">DESIGN HOUSE</span>
+          </div>
+          <button id="mobile-close" class="text-muted hover:text-white p-2" aria-label="Close menu">
+            <i class="fa-solid fa-xmark text-xl"></i>
+          </button>
+        </div>
+
+        <nav class="flex flex-col gap-6 mobile-nav-links" aria-label="Mobile Navigation">
+          <a href="#about" class="mobile-nav-link">01. About Us</a>
+          <a href="#process" class="mobile-nav-link">02. Design Process</a>
+          <a href="#works" class="mobile-nav-link">03. Works (Commercial & Residential)</a>
+          <a href="#estimator" class="mobile-nav-link">04. Scope Planner</a>
+          <a href="#reviews" class="mobile-nav-link">05. Client Reviews</a>
+          <a href="#appointment" class="mobile-nav-link text-gold font-medium">06. Book Appointment</a>
+          <a href="#contact" class="mobile-nav-link">07. Studio Contact</a>
+        </nav>
+      </div>
+
+      <div class="pt-6 border-t border-border-subtle">
+        <p class="font-times text-xs tracking-widest text-muted uppercase mb-3">Where art, function & life meet.</p>
+        <div class="flex gap-4 text-muted">
+          <a href="#" class="hover:text-gold transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="hover:text-gold transition-colors" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+          <a href="#" class="hover:text-gold transition-colors" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="#" class="hover:text-gold transition-colors" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section relative min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden">
+      <!-- Hero Background Image & Gradient Masks -->
+      <div class="absolute inset-0 z-0">
+        <img src="./assets/images/hero_interior.jpg" alt="The El Design House Luxury Penthouse Interior Architecture" class="w-full h-full object-cover object-center scale-105 animate-slow-zoom filter brightness-75">
+        <div class="hero-overlay absolute inset-0"></div>
+        <div class="hero-blueprint-grid" aria-hidden="true"></div>
+      </div>
+
+      <div class="container-wide relative z-10 mx-auto px-6 md:px-12 text-center flex flex-col items-center">
+        
+        <!-- Brand Badge Pill -->
+        <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-8 animate-fade-in-up">
+          <span class="w-1.5 h-1.5 rounded-full bg-gold animate-pulse"></span>
+          <span class="text-xs uppercase tracking-[0.25em] text-gold font-sans font-medium">Global Architecture & Interior Studio</span>
+        </div>
+
+        <!-- Studio Main Logo / Typography Display -->
+        <div class="hero-brand-block mb-6 animate-fade-in-up delay-100">
+          <h1 class="hero-title font-times text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-white tracking-[0.16em] leading-[1.08] font-normal uppercase">
+            THE EL<br>
+            <span class="text-white">DESIGN HOUSE</span>
+          </h1>
+        </div>
+
+        <!-- Tagline directly from Logo / PDF -->
+        <p class="hero-tagline font-cinzel text-sm sm:text-base md:text-xl tracking-[0.35em] text-platinum/90 uppercase font-light mb-10 max-w-2xl border-y border-gold/30 py-3 animate-fade-in-up delay-200">
+          Where art, function and life meet.
+        </p>
+
+        <p class="hero-description text-sm md:text-base text-muted max-w-xl font-light leading-relaxed mb-12 animate-fade-in-up delay-300">
+          End-to-end turnkey architectural interiors. From conceptual genesis and bespoke structural builds to white-glove handover in global destinations.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row items-center gap-5 w-full max-w-md justify-center mb-16 animate-fade-in-up delay-400">
+          <a href="#appointment" class="btn-luxe-gold w-full sm:w-auto text-center px-8 py-4">
+            <span>Schedule Consultation</span>
+            <i class="fa-solid fa-calendar-check text-xs ml-2"></i>
+          </a>
+          <a href="#works" class="btn-luxe-outline w-full sm:w-auto text-center px-8 py-4">
+            <span>Explore Works</span>
+            <i class="fa-solid fa-arrow-down text-xs ml-2"></i>
+          </a>
+        </div>
+
+        <!-- Metric Credentials Bar -->
+        <div class="w-full max-w-4xl grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-white/10 backdrop-blur-sm animate-fade-in-up delay-500">
+          <div class="metric-card">
+            <span class="metric-number font-cinzel text-2xl md:text-3xl font-bold text-gold">140+</span>
+            <span class="metric-label text-xs uppercase tracking-wider text-muted mt-1">Spaces Executed</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-number font-cinzel text-2xl md:text-3xl font-bold text-white">100%</span>
+            <span class="metric-label text-xs uppercase tracking-wider text-muted mt-1">Turnkey Delivery</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-number font-cinzel text-2xl md:text-3xl font-bold text-gold">12</span>
+            <span class="metric-label text-xs uppercase tracking-wider text-muted mt-1">Global Cities</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-number font-cinzel text-2xl md:text-3xl font-bold text-white">5.0 ★</span>
+            <span class="metric-label text-xs uppercase tracking-wider text-muted mt-1">Client Satisfaction</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Scroll Indicator -->
+      <a href="#about" class="hero-scroll-indicator absolute bottom-6 left-1/2 -translate-x-1/2 text-muted hover:text-gold transition-colors flex flex-col items-center gap-2" aria-label="Scroll to About section">
+        <span class="text-[10px] uppercase tracking-widest">Scroll</span>
+        <div class="w-4 h-7 border border-white/20 rounded-full flex justify-center pt-1">
+          <span class="w-1 h-1.5 bg-gold rounded-full animate-scroll-bounce"></span>
+        </div>
+      </a>
+    </section>
+
+    <!-- ABOUT US SECTION (VISION & MISSION) -->
+    <section id="about" class="section-padding relative z-10 border-t border-border-subtle bg-surface/50">
+      <div class="container-wide mx-auto px-6 md:px-12">
+        
+        <!-- Section Header -->
+        <div class="max-w-3xl mb-16">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-gold font-cinzel text-xs tracking-widest uppercase">01 / Studio Profile</span>
+            <div class="w-12 h-px bg-gold/40"></div>
+          </div>
+          <h2 class="font-cormorant text-3xl sm:text-5xl md:text-6xl text-white font-light leading-tight">
+            Sculpting Spaces with <span class="italic font-normal text-gold">Intention</span>, Craft & Soul.
+          </h2>
+        </div>
+
+        <!-- Editorial 2-Column Story Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-20">
+          
+          <!-- Image Left Column with Architectural Moodboard -->
+          <div class="lg:col-span-6 relative">
+            <div class="studio-image-frame relative rounded-lg overflow-hidden border border-border-subtle shadow-2xl group">
+              <img src="./assets/images/about_studio.jpg" alt="The El Design House Materiality and Studio Blueprints" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+              
+              <!-- Floating Material Badge -->
+              <div class="absolute bottom-6 right-6 bg-noir/90 backdrop-blur-md border border-white/10 p-4 rounded-md max-w-xs shadow-xl hidden sm:block">
+                <p class="font-cinzel text-xs text-gold tracking-wider uppercase mb-1">Materiality & Craft</p>
+                <p class="text-xs text-muted leading-relaxed">Natural Travertine, Fluted Smoked Oak, Raw Bronze & Tailored Textures.</p>
+              </div>
+            </div>
+            
+            <!-- Architectural Background Accent Box -->
+            <div class="absolute -top-4 -left-4 w-full h-full border border-gold/20 rounded-lg -z-10 hidden sm:block"></div>
+          </div>
+
+          <!-- Text Right Column -->
+          <div class="lg:col-span-6 flex flex-col gap-8">
+            <div class="prose-luxe">
+              <p class="text-lg md:text-xl text-platinum/90 font-cormorant leading-relaxed italic mb-6">
+                “We do not merely decorate square footage; we choreograph atmosphere, light, and architectural harmony to evoke emotional resonance.”
+              </p>
+              <p class="text-sm md:text-base text-muted leading-relaxed mb-6 font-light">
+                Founded on the uncompromising pursuit of architectural distinction, <strong class="text-white font-medium">The El Design House</strong> operates as a bespoke interior design studio catering to discerning homeowners, luxury hospitality operators, and forward-thinking commercial enterprises worldwide.
+              </p>
+              <p class="text-sm md:text-base text-muted leading-relaxed font-light">
+                Our practice is distinguished by taking on only comprehensive, end-to-end commissions. By maintaining absolute control from the initial structural blueprint through fabrication to bespoke joinery, we safeguard the purity of the design vision.
+              </p>
+            </div>
+
+            <!-- Vision & Mission Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+              
+              <!-- Vision Card -->
+              <div class="vision-mission-card p-6 rounded-lg bg-surface-elevated/70 border border-border-subtle hover:border-gold/50 transition-all duration-300">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center text-gold text-xs">
+                    <i class="fa-solid fa-eye"></i>
+                  </div>
+                  <h3 class="font-cinzel text-sm uppercase tracking-widest text-white font-semibold">Our Vision</h3>
+                </div>
+                <p class="text-xs md:text-sm text-muted leading-relaxed font-light">
+                  To be the global benchmark for transformative spatial design—where architectural minimalism and sensory richness coexist in timeless balance.
+                </p>
+              </div>
+
+              <!-- Mission Card -->
+              <div class="vision-mission-card p-6 rounded-lg bg-surface-elevated/70 border border-border-subtle hover:border-gold/50 transition-all duration-300">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center text-gold text-xs">
+                    <i class="fa-solid fa-compass-drafting"></i>
+                  </div>
+                  <h3 class="font-cinzel text-sm uppercase tracking-widest text-white font-semibold">Our Mission</h3>
+                </div>
+                <p class="text-xs md:text-sm text-muted leading-relaxed font-light">
+                  To deliver seamless, white-glove turnkey execution across residential and commercial domains, liberating our clients through impeccable craft and absolute precision.
+                </p>
+              </div>
+
+            </div>
+
+            <!-- Studio Pillars / Values -->
+            <div class="flex flex-wrap gap-3 pt-2">
+              <span class="pill-badge"><i class="fa-solid fa-gem text-gold text-xs mr-2"></i>Bespoke Fabrication</span>
+              <span class="pill-badge"><i class="fa-solid fa-cube text-gold text-xs mr-2"></i>3D Photorealistic Pre-visualization</span>
+              <span class="pill-badge"><i class="fa-solid fa-shield-halved text-gold text-xs mr-2"></i>Fixed-Timeline Turnkey</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DESIGN PROCESS SECTION (4-STAGE TURNKEY EXECUTION) -->
+    <section id="process" class="section-padding relative z-10 bg-noir border-t border-border-subtle">
+      <div class="container-wide mx-auto px-6 md:px-12">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-3 mb-3">
+            <div class="w-8 h-px bg-gold/50"></div>
+            <span class="text-gold font-cinzel text-xs tracking-widest uppercase">02 / Residential & Commercial Execution Globally</span>
+            <div class="w-8 h-px bg-gold/50"></div>
+          </div>
+          <h2 class="font-cormorant text-4xl sm:text-5xl md:text-6xl text-white font-light mb-4">
+            Our Architectural <span class="italic text-gold font-normal">Process</span>
+          </h2>
+          <p class="text-sm md:text-base text-muted max-w-xl mx-auto font-light leading-relaxed">
+            A methodical, uncompromised four-stage journey from intimate dialogue to turnkey reality.
+          </p>
+        </div>
+
+        <!-- Interactive Process Steps Grid / Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+          
+          <!-- Step 01: Briefing -->
+          <div class="process-card p-8 rounded-xl bg-surface/60 border border-border-subtle hover:border-gold/60 transition-all duration-500 group flex flex-col justify-between relative overflow-hidden" data-step="1">
+            <div class="process-watermark font-cinzel font-bold" aria-hidden="true">01</div>
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span class="font-cinzel text-2xl font-bold text-gold tracking-widest">01.</span>
+                <span class="text-[10px] uppercase tracking-widest px-2.5 py-1 rounded bg-white/5 border border-white/10 text-muted">Discovery</span>
+              </div>
+              <h3 class="font-cinzel text-lg font-bold uppercase tracking-wider text-white mb-4 group-hover:text-gold transition-colors">
+                Briefing
+              </h3>
+              <p class="text-sm text-muted leading-relaxed font-light mb-6">
+                We begin with an exhaustive questionnaire to fully understand the client’s needs and expectations. The most important of all steps.
+              </p>
+            </div>
+            
+            <div class="pt-6 border-t border-white/5">
+              <ul class="text-xs text-platinum/80 space-y-2 font-light">
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold text-[10px]"></i> Client Needs Questionnaire</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold text-[10px]"></i> Site Survey & Spatial Audit</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold text-[10px]"></i> Budget & Milestones Alignment</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Step 02: Design -->
+          <div class="process-card p-8 rounded-xl bg-surface/60 border border-border-subtle hover:border-gold/60 transition-all duration-500 group flex flex-col justify-between relative overflow-hidden" data-step="2">
+            <div class="process-watermark font-cinzel font-bold" aria-hidden="true">02</div>
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span class="font-cinzel text-2xl font-bold text-gold tracking-widest">02.</span>
+                <span class="text-[10px] uppercase tracking-widest px-2.5 py-1 rounded bg-white/5 border border-white/10 text-muted">Conceptual</span>
+              </div>
+              <h3 class="font-cinzel text-lg font-bold uppercase tracking-wider text-white mb-4 group-hover:text-gold transition-colors">
+                Design
+              </h3>
+              <p class="text-sm text-muted leading-relaxed font-light mb-6">
+                Translating the brief into the blueprint of what is to come. From moodboards to models, we design every last detail.
+              </p>
+            </div>
+            
+            <div class="pt-6 border-t border-white/5">
+              <ul class="text-xs text-platinum/80 space-y-2 font-light">
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold text-[10px]"></i> Moodboards & Material Curation</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold text-[10px]"></i> 3D Photorealistic Models</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold text-[10px]"></i> Structural & Lighting Blueprints</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Step 03: Execution -->
+          <div class="process-card p-8 rounded-xl bg-surface/60 border border-border-subtle hover:border-gold/60 transition-all duration-500 group flex flex-col justify-between relative overflow-hidden" data-step="3">
+            <div class="process-watermark font-cinzel font-bold" aria-hidden="true">03</div>
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span class="font-cinzel text-2xl font-bold text-gold tracking-widest">03.</span>
+                <span class="text-[10px] uppercase tracking-widest px-2.5 py-1 rounded bg-white/5 border border-white/10 text-muted">Build & Craft</span>
+              </div>
+              <h3 class="font-cinzel text-lg font-bold uppercase tracking-wider text-white mb-4 group-hover:text-gold transition-colors">
+                Execution
+              </h3>
+              <p class="text-sm text-muted leading-relaxed font-light mb-6">
+                Bringing our designs to life by building it from the ground up. As we only take on end-to-end projects, everything from structural design to decor is executed in this phase.
+              </p>
+            </div>
+            
+            <div class="pt-6 border-t border-white/5">
+              <ul class="text-xs text-platinum/80 space-y-2 font-light">
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold text-[10px]"></i> Ground-Up Construction Management</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold text-[10px]"></i> Artisanal Custom Joinery & Masonry</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold text-[10px]"></i> Complete Structural to Decor Execution</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Step 04: Handover -->
+          <div class="process-card p-8 rounded-xl bg-surface/60 border border-border-subtle hover:border-gold/60 transition-all duration-500 group flex flex-col justify-between relative overflow-hidden" data-step="4">
+            <div class="process-watermark font-cinzel font-bold" aria-hidden="true">04</div>
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span class="font-cinzel text-2xl font-bold text-gold tracking-widest">04.</span>
+                <span class="text-[10px] uppercase tracking-widest px-2.5 py-1 rounded bg-gold/10 border border-gold/30 text-gold">Turnkey</span>
+              </div>
+              <h3 class="font-cinzel text-lg font-bold uppercase tracking-wider text-white mb-4 group-hover:text-gold transition-colors">
+                Handover
+              </h3>
+              <p class="text-sm text-muted leading-relaxed font-light mb-6">
+                The most anticipated moment, where we hand our clients the keys to their new space, all ready to move in.
+              </p>
+            </div>
+            
+            <div class="pt-6 border-t border-white/5">
+              <ul class="text-xs text-platinum/80 space-y-2 font-light">
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold text-[10px]"></i> White-Glove Move-in Perfection</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold text-[10px]"></i> As-Built Maintenance Dossier</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold text-[10px]"></i> Ongoing Aftercare & Warranty</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Interactive Process Visual Showcase -->
+        <div class="mt-14 p-8 rounded-2xl bg-surface-elevated/40 border border-border-subtle flex flex-col lg:flex-row items-center justify-between gap-8">
+          <div class="flex items-center gap-6">
+            <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 border border-gold/30">
+              <img src="./assets/images/process_models.jpg" alt="Design Execution in Progress" class="w-full h-full object-cover">
+            </div>
+            <div>
+              <h4 class="font-cinzel text-base font-semibold text-white">Global Execution Standards</h4>
+              <p class="text-xs md:text-sm text-muted font-light mt-1">Our turnkey protocol ensures seamless project delivery whether in London, Dubai, New York, or Singapore.</p>
+            </div>
+          </div>
+          <a href="#appointment" class="btn-luxe-gold whitespace-nowrap">
+            <span>Inquire About Your Project</span>
+            <i class="fa-solid fa-arrow-right text-xs ml-2"></i>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- WORKS / PORTFOLIO SECTION (RESIDENTIAL & COMMERCIAL) -->
+    <section id="works" class="section-padding relative z-10 bg-surface/40 border-t border-border-subtle">
+      <div class="container-wide mx-auto px-6 md:px-12">
+        
+        <!-- Section Header & Filter Controls -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14">
+          <div>
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-gold font-cinzel text-xs tracking-widest uppercase">03 / Selected Works</span>
+              <div class="w-12 h-px bg-gold/40"></div>
+            </div>
+            <h2 class="font-cormorant text-4xl sm:text-5xl md:text-6xl text-white font-light">
+              Curated <span class="italic text-gold font-normal">Portfolio</span>
+            </h2>
+            <p class="text-sm md:text-base text-muted font-light mt-2 max-w-xl">
+              Explore our landmark residential sanctuaries and iconic commercial developments executed with relentless precision.
+            </p>
+          </div>
+
+          <!-- Category Filter Tabs (Commercial & Residential) -->
+          <div class="portfolio-filter-tabs flex items-center p-1.5 rounded-full bg-noir border border-border-subtle" role="tablist">
+            <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">
+              All Works <span class="filter-count">06</span>
+            </button>
+            <button class="filter-tab" data-filter="residential" role="tab" aria-selected="false">
+              Residential <span class="filter-count">03</span>
+            </button>
+            <button class="filter-tab" data-filter="commercial" role="tab" aria-selected="false">
+              Commercial <span class="filter-count">03</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Portfolio Cards Grid -->
+        <div id="portfolio-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Project 1: Obsidian Penthouse (Residential) -->
+          <article class="project-card group" data-category="residential" data-id="obsidian-penthouse">
+            <div class="project-thumb-container relative aspect-[4/3] rounded-xl overflow-hidden border border-border-subtle bg-noir">
+              <img src="./assets/images/res_obsidian_penthouse.jpg" alt="The Obsidian Sky Penthouse Interior" class="project-img w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+              <div class="project-overlay"></div>
+              
+              <!-- Badges -->
+              <div class="absolute top-4 left-4 flex gap-2">
+                <span class="badge-tag">Residential</span>
+                <span class="badge-tag bg-noir/80 text-gold border-gold/30">Penthouse</span>
+              </div>
+              <div class="absolute top-4 right-4">
+                <span class="text-[11px] font-mono text-white/80 bg-noir/70 px-2.5 py-1 rounded backdrop-blur-sm">London, UK</span>
+              </div>
+
+              <!-- Quick View Trigger on Hover -->
+              <div class="project-hover-action">
+                <button class="btn-quick-view" data-project="obsidian-penthouse">
+                  <span>View Case Study</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-2"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="project-info mt-5">
+              <div class="flex items-baseline justify-between mb-1">
+                <h3 class="font-cinzel text-lg font-bold text-white group-hover:text-gold transition-colors">
+                  The Obsidian Sky Penthouse
+                </h3>
+                <span class="text-xs text-muted font-mono">6,400 sq.ft</span>
+              </div>
+              <p class="text-xs text-muted font-light leading-relaxed">
+                Monolithic Nero Marquina black marble, cantilevered ceilings, and panoramic city vistas.
+              </p>
+            </div>
+          </article>
+
+          <!-- Project 2: Aura Couture Atelier (Commercial) -->
+          <article class="project-card group" data-category="commercial" data-id="aura-atelier">
+            <div class="project-thumb-container relative aspect-[4/3] rounded-xl overflow-hidden border border-border-subtle bg-noir">
+              <img src="./assets/images/comm_atelier_boutique.jpg" alt="Aura Haute Couture Boutique and Jewelry Atelier" class="project-img w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+              <div class="project-overlay"></div>
+              
+              <div class="absolute top-4 left-4 flex gap-2">
+                <span class="badge-tag">Commercial</span>
+                <span class="badge-tag bg-noir/80 text-gold border-gold/30">Haute Retail</span>
+              </div>
+              <div class="absolute top-4 right-4">
+                <span class="text-[11px] font-mono text-white/80 bg-noir/70 px-2.5 py-1 rounded backdrop-blur-sm">Dubai, UAE</span>
+              </div>
+
+              <div class="project-hover-action">
+                <button class="btn-quick-view" data-project="aura-atelier">
+                  <span>View Case Study</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-2"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="project-info mt-5">
+              <div class="flex items-baseline justify-between mb-1">
+                <h3 class="font-cinzel text-lg font-bold text-white group-hover:text-gold transition-colors">
+                  Aura Couture & Jewelry Atelier
+                </h3>
+                <span class="text-xs text-muted font-mono">4,200 sq.ft</span>
+              </div>
+              <p class="text-xs text-muted font-light leading-relaxed">
+                Fluted smoked glass partitions, backlit white onyx plinths, and bespoke bronze display cases.
+              </p>
+            </div>
+          </article>
+
+          <!-- Project 3: Aethelgard Villa (Residential) -->
+          <article class="project-card group" data-category="residential" data-id="aethelgard-villa">
+            <div class="project-thumb-container relative aspect-[4/3] rounded-xl overflow-hidden border border-border-subtle bg-noir">
+              <img src="./assets/images/res_aethelgard_villa.jpg" alt="Aethelgard Warm Minimalist Villa" class="project-img w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+              <div class="project-overlay"></div>
+              
+              <div class="absolute top-4 left-4 flex gap-2">
+                <span class="badge-tag">Residential</span>
+                <span class="badge-tag bg-noir/80 text-gold border-gold/30">Villa</span>
+              </div>
+              <div class="absolute top-4 right-4">
+                <span class="text-[11px] font-mono text-white/80 bg-noir/70 px-2.5 py-1 rounded backdrop-blur-sm">Monaco</span>
+              </div>
+
+              <div class="project-hover-action">
+                <button class="btn-quick-view" data-project="aethelgard-villa">
+                  <span>View Case Study</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-2"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="project-info mt-5">
+              <div class="flex items-baseline justify-between mb-1">
+                <h3 class="font-cinzel text-lg font-bold text-white group-hover:text-gold transition-colors">
+                  Aethelgard Mediterranean Villa
+                </h3>
+                <span class="text-xs text-muted font-mono">8,900 sq.ft</span>
+              </div>
+              <p class="text-xs text-muted font-light leading-relaxed">
+                Curved microcement plaster, Italian travertine floors, and bespoke dark walnut millwork.
+              </p>
+            </div>
+          </article>
+
+          <!-- Project 4: Kuro Speakeasy Lounge (Commercial) -->
+          <article class="project-card group" data-category="commercial" data-id="kuro-lounge">
+            <div class="project-thumb-container relative aspect-[4/3] rounded-xl overflow-hidden border border-border-subtle bg-noir">
+              <img src="./assets/images/comm_kuro_lounge.jpg" alt="Kuro High-End Japanese Speakeasy Lounge" class="project-img w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+              <div class="project-overlay"></div>
+              
+              <div class="absolute top-4 left-4 flex gap-2">
+                <span class="badge-tag">Commercial</span>
+                <span class="badge-tag bg-noir/80 text-gold border-gold/30">Hospitality</span>
+              </div>
+              <div class="absolute top-4 right-4">
+                <span class="text-[11px] font-mono text-white/80 bg-noir/70 px-2.5 py-1 rounded backdrop-blur-sm">Tokyo / Ginza</span>
+              </div>
+
+              <div class="project-hover-action">
+                <button class="btn-quick-view" data-project="kuro-lounge">
+                  <span>View Case Study</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-2"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="project-info mt-5">
+              <div class="flex items-baseline justify-between mb-1">
+                <h3 class="font-cinzel text-lg font-bold text-white group-hover:text-gold transition-colors">
+                  Kuro Speakeasy & Lounge
+                </h3>
+                <span class="text-xs text-muted font-mono">3,800 sq.ft</span>
+              </div>
+              <p class="text-xs text-muted font-light leading-relaxed">
+                Curved midnight velvet booths, ribbed dark timber paneling, and glowing amber backbar.
+              </p>
+            </div>
+          </article>
+
+          <!-- Project 5: Axiom Executive Headquarters (Commercial) -->
+          <article class="project-card group" data-category="commercial" data-id="axiom-hq">
+            <div class="project-thumb-container relative aspect-[4/3] rounded-xl overflow-hidden border border-border-subtle bg-noir">
+              <img src="./assets/images/comm_omnia_hq.jpg" alt="Axiom Executive Corporate Boardroom and HQ" class="project-img w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+              <div class="project-overlay"></div>
+              
+              <div class="absolute top-4 left-4 flex gap-2">
+                <span class="badge-tag">Commercial</span>
+                <span class="badge-tag bg-noir/80 text-gold border-gold/30">Corporate HQ</span>
+              </div>
+              <div class="absolute top-4 right-4">
+                <span class="text-[11px] font-mono text-white/80 bg-noir/70 px-2.5 py-1 rounded backdrop-blur-sm">New York, USA</span>
+              </div>
+
+              <div class="project-hover-action">
+                <button class="btn-quick-view" data-project="axiom-hq">
+                  <span>View Case Study</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-2"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="project-info mt-5">
+              <div class="flex items-baseline justify-between mb-1">
+                <h3 class="font-cinzel text-lg font-bold text-white group-hover:text-gold transition-colors">
+                  Axiom Global Headquarters
+                </h3>
+                <span class="text-xs text-muted font-mono">11,500 sq.ft</span>
+              </div>
+              <p class="text-xs text-muted font-light leading-relaxed">
+                Monolithic custom slate conference tables, acoustic timber slats, and minimalist executive suites.
+              </p>
+            </div>
+          </article>
+
+          <!-- Project 6: Sanctuary Duplex Penthouse (Residential) -->
+          <article class="project-card group" data-category="residential" data-id="sanctuary-duplex">
+            <div class="project-thumb-container relative aspect-[4/3] rounded-xl overflow-hidden border border-border-subtle bg-noir">
+              <img src="./assets/images/after_luxe_space.jpg" alt="Sanctuary Duplex Living Architecture" class="project-img w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+              <div class="project-overlay"></div>
+              
+              <div class="absolute top-4 left-4 flex gap-2">
+                <span class="badge-tag">Residential</span>
+                <span class="badge-tag bg-noir/80 text-gold border-gold/30">Duplex</span>
+              </div>
+              <div class="absolute top-4 right-4">
+                <span class="text-[11px] font-mono text-white/80 bg-noir/70 px-2.5 py-1 rounded backdrop-blur-sm">Zurich, Switzerland</span>
+              </div>
+
+              <div class="project-hover-action">
+                <button class="btn-quick-view" data-project="sanctuary-duplex">
+                  <span>View Case Study</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-2"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="project-info mt-5">
+              <div class="flex items-baseline justify-between mb-1">
+                <h3 class="font-cinzel text-lg font-bold text-white group-hover:text-gold transition-colors">
+                  The Sanctuary Duplex
+                </h3>
+                <span class="text-xs text-muted font-mono">5,800 sq.ft</span>
+              </div>
+              <p class="text-xs text-muted font-light leading-relaxed">
+                Double-height split-face slate feature fireplace, custom curved seating, and private mezzanine.
+              </p>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- INTERACTIVE BEFORE & AFTER TRANSFORMATION SLIDER -->
+        <div class="mt-24 pt-16 border-t border-border-subtle">
+          <div class="text-center max-w-2xl mx-auto mb-10">
+            <span class="text-gold font-cinzel text-xs tracking-widest uppercase">The Power of Turnkey Execution</span>
+            <h3 class="font-cormorant text-3xl sm:text-4xl md:text-5xl text-white font-light mt-2">
+              From Raw Concrete Shell to <span class="italic text-gold font-normal">Living Masterpiece</span>
+            </h3>
+            <p class="text-xs md:text-sm text-muted font-light mt-2">
+              Drag the interactive slider to reveal how our end-to-end process transforms uninhabited bare space into high-art architecture.
+            </p>
+          </div>
+
+          <div class="before-after-container relative max-w-5xl mx-auto rounded-2xl overflow-hidden border border-border-subtle shadow-2xl select-none" id="beforeAfterSlider">
+            <!-- After (Full background image) -->
+            <img src="./assets/images/after_luxe_space.jpg" alt="Transformed Luxury Space Handover" class="w-full h-auto object-cover block">
+            <div class="slider-badge after-badge font-cinzel text-xs tracking-wider">04. HANDOVER (Completed)</div>
+
+            <!-- Before (Clipped image overlay) -->
+            <div class="before-image-wrap absolute inset-0 overflow-hidden" id="beforeImageWrap">
+              <img src="./assets/images/before_raw_space.jpg" alt="Raw Construction Penthouse Shell" class="absolute inset-0 w-full h-full object-cover max-w-none">
+              <div class="slider-badge before-badge font-cinzel text-xs tracking-wider">01. BRIEFING (Raw Shell)</div>
+            </div>
+
+            <!-- Divider Line & Drag Handle -->
+            <div class="slider-handle absolute top-0 bottom-0 z-20 cursor-ew-resize flex items-center justify-center" id="sliderHandle">
+              <div class="handle-line w-0.5 h-full bg-gold shadow-[0_0_10px_rgba(197,160,89,0.8)]"></div>
+              <div class="handle-button w-10 h-10 rounded-full bg-noir border-2 border-gold flex items-center justify-center text-gold text-xs shadow-2xl absolute">
+                <i class="fa-solid fa-left-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- INTERACTIVE SCOPE & COST ESTIMATOR -->
+    <section id="estimator" class="section-padding relative z-10 bg-noir border-t border-border-subtle">
+      <div class="container-wide mx-auto px-6 md:px-12">
+        
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-12">
+            <div class="inline-flex items-center gap-2 mb-3">
+              <span class="text-gold font-cinzel text-xs tracking-widest uppercase">Interactive Tool</span>
+            </div>
+            <h2 class="font-cormorant text-3xl sm:text-5xl text-white font-light">
+              Project Scope & Timeline <span class="italic text-gold font-normal">Estimator</span>
+            </h2>
+            <p class="text-xs md:text-sm text-muted font-light mt-2 max-w-lg mx-auto">
+              Plan your architectural journey with indicative milestones tailored to your space parameters.
+            </p>
+          </div>
+
+          <!-- Estimator Card -->
+          <div class="estimator-card p-8 md:p-10 rounded-2xl bg-surface/70 border border-border-subtle shadow-2xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+              
+              <!-- Input 1: Space Category -->
+              <div>
+                <label class="block font-cinzel text-xs text-white uppercase tracking-wider mb-3">1. Select Project Type</label>
+                <div class="grid grid-cols-2 gap-3" id="calcTypeGroup">
+                  <button type="button" class="calc-btn active" data-type="residential">
+                    <i class="fa-solid fa-house-chimney text-gold text-sm block mb-1"></i>
+                    <span>Residential</span>
+                  </button>
+                  <button type="button" class="calc-btn" data-type="commercial">
+                    <i class="fa-solid fa-building text-gold text-sm block mb-1"></i>
+                    <span>Commercial</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Input 2: Finish Specification Tier -->
+              <div>
+                <label class="block font-cinzel text-xs text-white uppercase tracking-wider mb-3">2. Execution Tier</label>
+                <div class="grid grid-cols-2 gap-3" id="calcTierGroup">
+                  <button type="button" class="calc-btn active" data-tier="haute">
+                    <i class="fa-solid fa-gem text-gold text-sm block mb-1"></i>
+                    <span>Haute Turnkey</span>
+                  </button>
+                  <button type="button" class="calc-btn" data-tier="bespoke">
+                    <i class="fa-solid fa-crown text-gold text-sm block mb-1"></i>
+                    <span>Bespoke Heritage</span>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Input 3: Square Footage Slider -->
+            <div class="mb-8 pt-4 border-t border-white/5">
+              <div class="flex items-center justify-between mb-3">
+                <label for="sqftRange" class="font-cinzel text-xs text-white uppercase tracking-wider">3. Approximate Space Footprint</label>
+                <span class="font-mono text-gold text-sm font-semibold" id="sqftDisplay">4,500 sq.ft</span>
+              </div>
+              <input type="range" id="sqftRange" min="1500" max="25000" step="500" value="4500" class="w-full custom-range">
+              <div class="flex justify-between text-[10px] text-muted mt-2 font-mono">
+                <span>1,500 sq.ft (Boutique / Loft)</span>
+                <span>10,000 sq.ft</span>
+                <span>25,000+ sq.ft (Palatial / HQ)</span>
+              </div>
+            </div>
+
+            <!-- Calculated Output Summary -->
+            <div class="p-6 rounded-xl bg-noir/80 border border-gold/20 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+              <div>
+                <span class="text-[11px] uppercase tracking-wider text-muted block mb-1">Estimated Timeline</span>
+                <span class="font-cinzel text-xl md:text-2xl font-bold text-white" id="calcTimeline">16 - 20 Weeks</span>
+              </div>
+              <div>
+                <span class="text-[11px] uppercase tracking-wider text-muted block mb-1">Design & 3D Phase</span>
+                <span class="font-cinzel text-xl md:text-2xl font-bold text-gold" id="calcDesignPhase">4 - 5 Weeks</span>
+              </div>
+              <div>
+                <span class="text-[11px] uppercase tracking-wider text-muted block mb-1">Dedicated Craftsmen</span>
+                <span class="font-cinzel text-xl md:text-2xl font-bold text-white" id="calcCrew">18+ Artisans</span>
+              </div>
+            </div>
+
+            <div class="text-center mt-8">
+              <a href="#appointment" class="btn-luxe-gold inline-flex items-center gap-2">
+                <span>Book Strategy Session for This Scope</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- APPOINTMENT BOOKING SECTION -->
+    <section id="appointment" class="section-padding relative z-10 bg-surface/50 border-t border-border-subtle">
+      <div class="container-wide mx-auto px-6 md:px-12">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          
+          <!-- Left Info Column -->
+          <div class="lg:col-span-5">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-gold font-cinzel text-xs tracking-widest uppercase">04 / Consultation</span>
+              <div class="w-12 h-px bg-gold/40"></div>
+            </div>
+            <h2 class="font-cormorant text-4xl sm:text-5xl md:text-6xl text-white font-light mb-6 leading-tight">
+              Begin Your <span class="italic text-gold font-normal">Spatial</span> Transformation.
+            </h2>
+            <p class="text-sm md:text-base text-muted font-light leading-relaxed mb-8">
+              Schedule a dedicated 45-minute architectural briefing with our principal design directors. We review your floor plans, lifestyle aspirations, and site parameters.
+            </p>
+
+            <!-- Key Assurances -->
+            <div class="space-y-4 mb-8">
+              <div class="flex items-start gap-4 p-4 rounded-lg bg-surface-elevated/40 border border-border-subtle">
+                <div class="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center text-gold text-xs flex-shrink-0 mt-0.5">
+                  <i class="fa-solid fa-globe"></i>
+                </div>
+                <div>
+                  <h4 class="font-cinzel text-xs font-semibold text-white uppercase tracking-wider">Global In-Person or Virtual</h4>
+                  <p class="text-xs text-muted mt-1 font-light">Available for site visits worldwide or secure HD digital architectural workshops.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 p-4 rounded-lg bg-surface-elevated/40 border border-border-subtle">
+                <div class="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center text-gold text-xs flex-shrink-0 mt-0.5">
+                  <i class="fa-solid fa-lock"></i>
+                </div>
+                <div>
+                  <h4 class="font-cinzel text-xs font-semibold text-white uppercase tracking-wider">Absolute Confidentiality</h4>
+                  <p class="text-xs text-muted mt-1 font-light">All consultations, property plans, and identity details are protected under standard NDA.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Direct Hotline Info -->
+            <div class="p-6 rounded-xl bg-noir border border-border-subtle">
+              <span class="text-[11px] uppercase tracking-wider text-muted block mb-2 font-mono">Immediate Inquiries</span>
+              <div class="flex items-center gap-3">
+                <i class="fa-solid fa-phone text-gold text-sm"></i>
+                <a href="tel:+442089401200" class="font-cinzel text-sm text-white hover:text-gold transition-colors">+44 (0) 20 8940 1200</a>
+              </div>
+              <div class="flex items-center gap-3 mt-2">
+                <i class="fa-regular fa-envelope text-gold text-sm"></i>
+                <a href="mailto:concierge@theeldesignhouse.com" class="font-cinzel text-sm text-white hover:text-gold transition-colors">concierge@theeldesignhouse.com</a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Interactive Booking Form -->
+          <div class="lg:col-span-7">
+            <div class="booking-card p-8 sm:p-10 rounded-2xl bg-noir border border-border-subtle shadow-2xl relative">
+              
+              <div class="flex items-center justify-between mb-8 pb-4 border-b border-white/10">
+                <div>
+                  <h3 class="font-cinzel text-lg font-bold text-white uppercase tracking-wider">Schedule Appointment</h3>
+                  <p class="text-xs text-muted font-light mt-0.5">Step-by-step reservation with our design directors</p>
+                </div>
+                <span class="text-xs font-mono px-3 py-1 rounded bg-gold/10 text-gold border border-gold/30">Direct Booking</span>
+              </div>
+
+              <form id="appointmentForm" class="space-y-6">
+                
+                <!-- Row 1: Name and Email -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div class="form-group">
+                    <label for="clientName" class="form-label">Full Name *</label>
+                    <input type="text" id="clientName" required placeholder="e.g. Lady Victoria Vance" class="form-input">
+                  </div>
+                  <div class="form-group">
+                    <label for="clientEmail" class="form-label">Email Address *</label>
+                    <input type="email" id="clientEmail" required placeholder="vance@residence.com" class="form-input">
+                  </div>
+                </div>
+
+                <!-- Row 2: Phone and City / Country -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div class="form-group">
+                    <label for="clientPhone" class="form-label">Contact / WhatsApp *</label>
+                    <input type="tel" id="clientPhone" required placeholder="+44 7911 123456" class="form-input">
+                  </div>
+                  <div class="form-group">
+                    <label for="projectLocation" class="form-label">Project Location (City, Country) *</label>
+                    <input type="text" id="projectLocation" required placeholder="e.g. Mayfair, London" class="form-input">
+                  </div>
+                </div>
+
+                <!-- Row 3: Project Type and Scope -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div class="form-group">
+                    <label for="projectType" class="form-label">Project Type *</label>
+                    <select id="projectType" required class="form-input">
+                      <option value="" disabled selected>Select Category</option>
+                      <option value="Residential - Penthouse / Villa">Residential — Penthouse / Villa</option>
+                      <option value="Residential - Private Residence">Residential — Private Residence</option>
+                      <option value="Commercial - Haute Boutique / Retail">Commercial — Haute Boutique / Retail</option>
+                      <option value="Commercial - Hospitality & Lounge">Commercial — Hospitality & Lounge</option>
+                      <option value="Commercial - Executive Headquarters">Commercial — Executive Headquarters</option>
+                      <option value="Full Architectural Turnkey Overhaul">Full Architectural Turnkey Overhaul</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="consultationMode" class="form-label">Consultation Format *</label>
+                    <select id="consultationMode" required class="form-input">
+                      <option value="Virtual Video Workshop (Zoom / Meet)">Virtual Video Workshop (Zoom / Meet)</option>
+                      <option value="On-Site Architectural Audit">On-Site Architectural Audit</option>
+                      <option value="At Our Design Studio">At Our Design Studio</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Row 4: Preferred Date & Time Slot -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div class="form-group">
+                    <label for="appointmentDate" class="form-label">Preferred Date *</label>
+                    <input type="date" id="appointmentDate" required class="form-input">
+                  </div>
+                  <div class="form-group">
+                    <label for="appointmentTime" class="form-label">Preferred Time Slot *</label>
+                    <select id="appointmentTime" required class="form-input">
+                      <option value="" disabled selected>Select Time (GMT / Local)</option>
+                      <option value="10:00 AM - 10:45 AM">10:00 AM – 10:45 AM</option>
+                      <option value="01:00 PM - 01:45 PM">01:00 PM – 01:45 PM</option>
+                      <option value="03:30 PM - 04:15 PM">03:30 PM – 04:15 PM</option>
+                      <option value="06:00 PM - 06:45 PM">06:00 PM – 06:45 PM</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Row 5: Notes & Scope Description -->
+                <div class="form-group">
+                  <label for="projectNotes" class="form-label">Brief Project Notes & Key Requirements</label>
+                  <textarea id="projectNotes" rows="3" placeholder="Tell us about the property footprint, timeline, or design goals..." class="form-input resize-none"></textarea>
+                </div>
+
+                <!-- Submit Action -->
+                <button type="submit" class="btn-luxe-gold w-full py-4 text-center justify-center text-sm font-semibold tracking-wider uppercase">
+                  <span>Confirm & Reserve Appointment</span>
+                  <i class="fa-solid fa-paper-plane text-xs ml-2"></i>
+                </button>
+
+                <p class="text-[11px] text-center text-muted">
+                  <i class="fa-solid fa-circle-check text-gold mr-1"></i> No upfront commitment. Instant confirmation generated.
+                </p>
+
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- REVIEWS & TESTIMONIALS SECTION + WRITE A REVIEW -->
+    <section id="reviews" class="section-padding relative z-10 bg-noir border-t border-border-subtle">
+      <div class="container-wide mx-auto px-6 md:px-12">
+        
+        <!-- Section Header with Overall Rating and Add Review Button -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+          <div>
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-gold font-cinzel text-xs tracking-widest uppercase">05 / Client Accolades</span>
+              <div class="w-12 h-px bg-gold/40"></div>
+            </div>
+            <h2 class="font-cormorant text-4xl sm:text-5xl md:text-6xl text-white font-light">
+              Voices of <span class="italic text-gold font-normal">Patrons</span>
+            </h2>
+            <p class="text-sm md:text-base text-muted font-light mt-2 max-w-xl">
+              Authentic reviews from owners, developers, and founders who commissioned their spaces with us.
+            </p>
+          </div>
+
+          <!-- Actions: Rating summary & "Write a Review" Modal trigger -->
+          <div class="flex flex-wrap items-center gap-4">
+            <div class="flex items-center gap-3 p-3 px-5 rounded-xl bg-surface border border-border-subtle">
+              <div class="font-cinzel text-2xl font-bold text-gold">5.0</div>
+              <div class="flex flex-col">
+                <div class="flex text-gold text-xs">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <span class="text-[10px] text-muted font-mono" id="reviewsCountBadge">98 Verified Reviews</span>
+              </div>
+            </div>
+
+            <button id="openReviewModalBtn" class="btn-luxe-gold">
+              <i class="fa-solid fa-pen-nib text-xs mr-2"></i>
+              <span>Write a Review</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Reviews Grid (Dynamic Container) -->
+        <div id="reviewsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Dynamic review cards populated by JS + default bespoke testimonials -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER / CONTACT SECTION -->
+    <footer id="contact" class="footer-section relative z-10 bg-noir border-t border-border-subtle pt-20 pb-12">
+      <div class="container-wide mx-auto px-6 md:px-12">
+        
+        <!-- Upper Footer Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-border-subtle">
+          
+          <!-- Col 1: Brand & Philosophy (5 Cols) -->
+          <div class="lg:col-span-5">
+            <div class="flex items-center gap-3 mb-6">
+              <svg class="w-9 h-9" viewBox="0 0 120 120" fill="none">
+                <rect width="120" height="120" rx="4" fill="#121216" stroke="#c5a059" stroke-width="1.5"/>
+                <path d="M22 22H56V56H22V22Z" fill="#f5f2eb"/>
+                <path d="M64 22H98V56H64V22Z" fill="#c5a059"/>
+                <path d="M22 64H56V98H22V64Z" fill="#c5a059"/>
+                <path d="M64 64H98V98H64V64Z" fill="#f5f2eb"/>
+              </svg>
+              <div>
+                <span class="font-times font-normal tracking-widest text-base text-white block">THE EL DESIGN HOUSE</span>
+                <span class="font-times text-[10px] tracking-wider text-muted">WHERE ART, FUNCTION AND LIFE MEET.</span>
+              </div>
+            </div>
+            <p class="text-xs md:text-sm text-muted leading-relaxed font-light mb-8 max-w-md">
+              A bespoke global architectural interior studio dedicated to the seamless execution of high-profile residential sanctuaries and iconic commercial establishments.
+            </p>
+            <div class="flex gap-4">
+              <a href="#" class="social-icon-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="social-icon-link" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+              <a href="#" class="social-icon-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+              <a href="#" class="social-icon-link" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+          </div>
+
+          <!-- Col 2: Studio Locations (3 Cols) -->
+          <div class="lg:col-span-3">
+            <h4 class="font-cinzel text-xs font-bold uppercase tracking-widest text-gold mb-6">Global Studios</h4>
+            <div class="space-y-4 text-xs text-muted font-light">
+              <div>
+                <p class="text-white font-medium mb-0.5">London (HQ)</p>
+                <p>14 Berkeley Square, Mayfair, London W1J 6BL</p>
+              </div>
+              <div>
+                <p class="text-white font-medium mb-0.5">Dubai</p>
+                <p>Building 4, Dubai Design District (d3), UAE</p>
+              </div>
+              <div>
+                <p class="text-white font-medium mb-0.5">New York</p>
+                <p>520 West 28th St, Chelsea, New York, NY</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Col 3: Quick Navigation (2 Cols) -->
+          <div class="lg:col-span-2">
+            <h4 class="font-cinzel text-xs font-bold uppercase tracking-widest text-gold mb-6">Explore</h4>
+            <ul class="space-y-2.5 text-xs text-muted font-light">
+              <li><a href="#about" class="hover:text-white transition-colors">About & Vision</a></li>
+              <li><a href="#process" class="hover:text-white transition-colors">Our 4-Stage Process</a></li>
+              <li><a href="#works" class="hover:text-white transition-colors">Residential Portfolio</a></li>
+              <li><a href="#works" class="hover:text-white transition-colors">Commercial Works</a></li>
+              <li><a href="#estimator" class="hover:text-white transition-colors">Scope Estimator</a></li>
+              <li><a href="#appointment" class="hover:text-white transition-colors">Book Consultation</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 4: Private Bulletin (2 Cols) -->
+          <div class="lg:col-span-2">
+            <h4 class="font-cinzel text-xs font-bold uppercase tracking-widest text-gold mb-6">Private Journal</h4>
+            <p class="text-xs text-muted font-light mb-4">Receive curated monographs on material innovation and spatial architecture.</p>
+            <form id="newsletterForm" class="flex flex-col gap-2">
+              <input type="email" placeholder="Your private email" required class="form-input text-xs py-2 px-3">
+              <button type="submit" class="btn-luxe-outline text-xs py-2 text-center justify-center">Subscribe</button>
+            </form>
+          </div>
+
+        </div>
+
+        <!-- Lower Footer Copyright -->
+        <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-muted font-light gap-4">
+          <p>© 2026 The El Design House. All Rights Reserved. Where Art, Function and Life Meet.</p>
+          <div class="flex gap-6">
+            <a href="#" class="hover:text-gold transition-colors">Privacy Policy</a>
+            <a href="#" class="hover:text-gold transition-colors">Terms of Commission</a>
+            <a href="#" class="hover:text-gold transition-colors">NDA Protocol</a>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+  </main>
+
+  <!-- WRITE A REVIEW MODAL -->
+  <div id="reviewModal" class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="modal-content relative w-full max-w-lg bg-noir border border-border-subtle rounded-2xl p-8 shadow-2xl transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto">
+      
+      <button id="closeReviewModalBtn" class="absolute top-6 right-6 text-muted hover:text-white p-2" aria-label="Close modal">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <div class="mb-6 pb-4 border-b border-border-subtle">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-gold font-cinzel text-xs tracking-widest uppercase">Client Feedback</span>
+        </div>
+        <h3 class="font-cinzel text-xl font-bold text-white">Share Your Experience</h3>
+        <p class="text-xs text-muted font-light mt-1">We value the reflections of the patrons we design for.</p>
+      </div>
+
+      <form id="writeReviewForm" class="space-y-5">
+        <!-- Interactive Star Rating Picker -->
+        <div>
+          <label class="form-label block mb-2">Your Rating *</label>
+          <div class="star-rating-picker flex items-center gap-2 text-2xl" id="starRatingContainer">
+            <i class="fa-solid fa-star star-item cursor-pointer text-gold" data-rating="1"></i>
+            <i class="fa-solid fa-star star-item cursor-pointer text-gold" data-rating="2"></i>
+            <i class="fa-solid fa-star star-item cursor-pointer text-gold" data-rating="3"></i>
+            <i class="fa-solid fa-star star-item cursor-pointer text-gold" data-rating="4"></i>
+            <i class="fa-solid fa-star star-item cursor-pointer text-gold" data-rating="5"></i>
+            <span class="font-mono text-xs text-gold ml-2" id="ratingTextDisplay">5.0 / Exceptional</span>
+          </div>
+          <input type="hidden" id="selectedRating" value="5">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="form-group">
+            <label for="reviewAuthor" class="form-label">Your Name *</label>
+            <input type="text" id="reviewAuthor" required placeholder="e.g. Marc & Sophia Sterling" class="form-input">
+          </div>
+          <div class="form-group">
+            <label for="reviewLocation" class="form-label">City / Region *</label>
+            <input type="text" id="reviewLocation" required placeholder="e.g. Kensington, London" class="form-input">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="form-group">
+            <label for="reviewType" class="form-label">Project Type *</label>
+            <select id="reviewType" required class="form-input">
+              <option value="Residential">Residential Interior</option>
+              <option value="Commercial">Commercial / Retail</option>
+              <option value="Hospitality">Hospitality & Lounge</option>
+              <option value="Turnkey Villa">Turnkey Villa Architecture</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="reviewProjectName" class="form-label">Project Name *</label>
+            <input type="text" id="reviewProjectName" required placeholder="e.g. Knightsbridge Triplex" class="form-input">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="reviewContent" class="form-label">Your Review & Testimonial *</label>
+          <textarea id="reviewContent" required rows="4" placeholder="Describe the design journey, craftsmanship, adherence to timeline, and final handover..." class="form-input resize-none"></textarea>
+        </div>
+
+        <button type="submit" class="btn-luxe-gold w-full py-3.5 text-center justify-center font-medium">
+          <span>Publish Review</span>
+          <i class="fa-solid fa-check text-xs ml-2"></i>
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- PROJECT CASE STUDY MODAL -->
+  <div id="projectModal" class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="modal-content relative w-full max-w-4xl bg-noir border border-border-subtle rounded-2xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 max-h-[90vh] flex flex-col">
+      
+      <!-- Modal Header Bar -->
+      <div class="flex items-center justify-between p-6 border-b border-border-subtle bg-surface flex-shrink-0">
+        <div>
+          <span class="font-cinzel text-xs text-gold tracking-widest uppercase" id="modalProjectCategory">Residential</span>
+          <h3 class="font-cinzel text-xl md:text-2xl font-bold text-white" id="modalProjectTitle">The Obsidian Sky Penthouse</h3>
+        </div>
+        <button id="closeProjectModalBtn" class="text-muted hover:text-white p-2" aria-label="Close modal">
+          <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body (Scrollable) -->
+      <div class="p-6 md:p-8 overflow-y-auto space-y-8">
+        
+        <!-- Main Feature Image -->
+        <div class="rounded-xl overflow-hidden aspect-[16/9] border border-border-subtle relative">
+          <img id="modalProjectImage" src="./assets/images/res_obsidian_penthouse.jpg" alt="Case Study Showcase" class="w-full h-full object-cover">
+        </div>
+
+        <!-- Metrics Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 rounded-xl bg-surface-elevated/60 border border-border-subtle text-center">
+          <div>
+            <span class="text-[10px] uppercase tracking-wider text-muted block">Location</span>
+            <span class="font-cinzel text-sm font-semibold text-white" id="modalProjectLocation">London, UK</span>
+          </div>
+          <div>
+            <span class="text-[10px] uppercase tracking-wider text-muted block">Footprint</span>
+            <span class="font-cinzel text-sm font-semibold text-gold" id="modalProjectFootprint">6,400 sq.ft</span>
+          </div>
+          <div>
+            <span class="text-[10px] uppercase tracking-wider text-muted block">Timeline</span>
+            <span class="font-cinzel text-sm font-semibold text-white" id="modalProjectTimeline">22 Weeks</span>
+          </div>
+          <div>
+            <span class="text-[10px] uppercase tracking-wider text-muted block">Scope</span>
+            <span class="font-cinzel text-sm font-semibold text-gold" id="modalProjectScope">Turnkey Architecture</span>
+          </div>
+        </div>
+
+        <!-- Project Story -->
+        <div>
+          <h4 class="font-cinzel text-sm font-bold uppercase tracking-wider text-white mb-3">Architectural Narrative</h4>
+          <p class="text-sm text-muted leading-relaxed font-light" id="modalProjectDescription">
+            A masterclass in dark luxury minimalism. Designed for high-profile art collectors, this bespoke penthouse features double-height cantilevered ceilings, custom bronze acoustic partitions, and custom Nero Marquina joinery executed end-to-end.
+          </p>
+        </div>
+
+        <!-- Material Palette Tags -->
+        <div>
+          <h4 class="font-cinzel text-xs font-bold uppercase tracking-wider text-gold mb-3">Materiality Specification</h4>
+          <div class="flex flex-wrap gap-2" id="modalProjectMaterials">
+            <span class="pill-badge">Nero Marquina Marble</span>
+            <span class="pill-badge">Smoked Oak Millwork</span>
+            <span class="pill-badge">Raw Brushed Bronze</span>
+            <span class="pill-badge">Acoustic Linen Panels</span>
+          </div>
+        </div>
+
+        <!-- CTA in Modal -->
+        <div class="pt-4 border-t border-border-subtle flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p class="text-xs text-muted font-light">Inspired by this aesthetic? Discuss your space parameters with our directors.</p>
+          <a href="#appointment" class="btn-luxe-gold whitespace-nowrap" id="modalBookBtn">
+            <span>Book Consultation For This Style</span>
+            <i class="fa-solid fa-arrow-right text-xs ml-2"></i>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- APPOINTMENT CONFIRMATION MODAL -->
+  <div id="bookingConfirmModal" class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="modal-content relative w-full max-w-md bg-noir border border-gold/40 rounded-2xl p-8 shadow-2xl transform scale-95 transition-transform duration-300 text-center">
+      
+      <div class="w-16 h-16 rounded-full bg-gold/10 border border-gold/40 flex items-center justify-center text-gold text-2xl mx-auto mb-6">
+        <i class="fa-solid fa-crown"></i>
+      </div>
+
+      <span class="text-xs uppercase tracking-widest text-gold font-cinzel">Appointment Reserved</span>
+      <h3 class="font-cinzel text-2xl font-bold text-white mt-1 mb-2">Welcome to The El House</h3>
+      
+      <p class="text-xs text-muted font-light leading-relaxed mb-6">
+        Your architectural consultation has been successfully logged with our executive team. A confirmation dossier has been reserved under reference code:
+      </p>
+
+      <div class="p-4 rounded-xl bg-surface border border-border-subtle mb-6 text-left space-y-2">
+        <div class="flex justify-between text-xs">
+          <span class="text-muted">Booking Reference:</span>
+          <span class="font-mono text-gold font-bold" id="confirmRefCode">ELDH-98421</span>
+        </div>
+        <div class="flex justify-between text-xs">
+          <span class="text-muted">Client Name:</span>
+          <span class="text-white font-medium" id="confirmClientName">Lady Victoria Vance</span>
+        </div>
+        <div class="flex justify-between text-xs">
+          <span class="text-muted">Consultation Date:</span>
+          <span class="text-white" id="confirmDate">October 14, 2026</span>
+        </div>
+        <div class="flex justify-between text-xs">
+          <span class="text-muted">Time Slot:</span>
+          <span class="text-gold" id="confirmTime">10:00 AM - 10:45 AM</span>
+        </div>
+        <div class="flex justify-between text-xs">
+          <span class="text-muted">Format:</span>
+          <span class="text-white" id="confirmFormat">Virtual Video Workshop</span>
+        </div>
+      </div>
+
+      <button id="closeBookingConfirmBtn" class="btn-luxe-gold w-full py-3 text-center justify-center font-medium">
+        <span>Acknowledge & Close</span>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toastContainer" class="fixed bottom-6 right-6 z-50 flex flex-col gap-3 pointer-events-none"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
